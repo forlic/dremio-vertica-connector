@@ -74,3 +74,14 @@ Note that the ARP framework requires a JDBC Driver for the source to allow Dremi
 9. To build, run `mvn clean install`. get the jar in the target dir, and copy that to $DREMIO_HOME/jars (on all nodes if running in cluster mode)
 10. Copy the JDBC driver to $DREMIO_HOME/jars/3rdparty (on all nodes if running in cluster mode)
 11. Restart dremio 
+
+## Debugging
+
+To debug pushdowns for queries set the following line in logback.xml
+
+  <logger name="com.dremio.exec.store.jdbc">
+    <level value="${dremio.log.level:-trace}"/>
+  </logger>
+
+- 2019-07-11 18:56:24,001 [22d879a7-ce3d-f2ca-f380-005a88865700/0:foreman-planning] DEBUG c.d.e.store.jdbc.dialect.arp.ArpYaml - Operator / not supported. Aborting pushdown.
+You can also take a look at the planning tab/visualized plan of the profile to determine if everything is pushed down or not.
