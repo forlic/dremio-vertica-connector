@@ -120,19 +120,26 @@ data_types:
     dremio:
       name: "date"
     required_cast_arguments: "none"
+  - source:
+      name: "time"
+    dremio: 
+      name: "time"
   
   #-------String Types--------#
 
   - source:
       name: "VARCHAR"
+      max_precision: 65000
+      literal_length_limit: 65000
     dremio:
       name: "varchar"
-    required_cast_arguments: "none"
+
   - source:
       name: "CHAR"
     dremio:
       name: "varchar"
     required_cast_arguments: "none"
+
   - source:
       name: "LONG VARCHAR"
     dremio:
