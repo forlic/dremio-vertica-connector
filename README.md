@@ -3,6 +3,7 @@
 
 <img src="https://www.dremio.com/img/dremio-website.png" width="60"> <img src="https://f002.backblazeb2.com/file/forlic-public/Vertica_pos_blk_rgb-2.svg" width="200">
 
+![GitHub last commit](https://img.shields.io/github/last-commit/forlic/dremio-vertica-connector) [![Build Status](https://travis-ci.org/forlic/dremio-vertica-connector.svg?branch=master)](https://travis-ci.org/forlic/dremio-vertica-connector)
 
 The Vertica connector allows Dremio to connect to and query data in a Vertica database. This can then allow you to build custom reports, dashboards, or even just ad-hoc SQL via your client tool of choice. Note that it does require a third-party JDBC driver that is not free, but does allow a free trial.
 
