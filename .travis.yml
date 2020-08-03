@@ -1,0 +1,5 @@
+language: java
+sudo: false
+script: 
+  - mvn clean install -DskipTests
+  - mv target/dremio-verticaarp-plugin-*.jar dremio-vertica-plugin.jar
