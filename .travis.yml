@@ -1,5 +1,13 @@
 language: java
 sudo: false
-script: 
-  - mvn clean install -DskipTests
-  - mv target/dremio-verticaarp-plugin-*.jar dremio-vertica-plugin.jar
+script:
+- mvn clean install -DskipTests
+- mv target/dremio-verticaarp-plugin-*.jar dremio-vertica-plugin.jar
+deploy:
+  provider: releases
+  api_key:
+    secure: YCLRqWAy+MA9LTJJ/YL0OLcqdrDCLs8khwAomPVuNt+YzIyDNQAQgMC2LFKejvqlKEvklq6lgv9sK+NgJn4N1YXvZc7vLKlkuql4E9Dnm6bAvr3Dgy7/iWly8gAa0jqz3yRf4R5JRmoKqSFoSeKdgIj1zRImmIlGIcgyL/tQTSKzpujhaA4a/XtDxwI/PqGzrqwpZpQZlEz+vGLcQa7EuCqJrHWIBXKR+ReoQ2ko+f6w+WwLQcT1jrIUhpUbALVON8tHHsyc8gh8lX0zVHlRVbAFpsf6bA5R4Tsz7NCGuQobPseY9FOn5O1RE1XW5uDdt/hxHi1fbPIII9O+/nguWlqgHaMF2bWIzkdNnPUfp98ONyYPAmLlHhYCQ3l+/NtT84pLPCzKWLiJeQ6xkA/OVoHromrnE47sufmK93LRRZFX64+8jo79RbtrYiMKRsFoRaHC1pKr8wUzLbZ1UilIEcIBcncm9RieRdCs4CQtnKZAE3rSamPZyyq+dPG7wYjux+IQezt1IbQF0wAYw2n88oEXRj2asDy7HDA5mCrGBeLFjetu7XCovuF63t5CqDK2iwF+9wlRJ1U3nV9V0PxHZwyPHBqRY8aPeIh+GKyn6nSzHCBsqG75BddfTGMUj6d40/CTylWg5s+Xh1ZI9CUzN+BIRQq0hiNAw4Inaz9UBjk=
+  file: dremio-vertica-plugin.jar
+  on:
+    repo: forlic/dremio-vertica-connector
+  skip_cleanup: 'true'
