@@ -16,8 +16,8 @@
 
 metadata:
   # Manually Configured Metadata Section.
-  name: VERTICAARP
-  apiname: vertica
+  name: VERTICA
+  apiname: Vertica
   spec_version: '1'
 
 syntax:
@@ -32,34 +32,37 @@ syntax:
 data_types:
   mappings:
   # Manually Configured Data Types Mappings Section.
- 
-  #-------Numeric Types--------#
+  #------------Boolean types--------------#
   - source:
       name: "BOOLEAN"
     dremio:
       name: "boolean"
-    required_cast_arguments: "none"
-  
+
+  #-------Numeric Types--------#
   - source:
       name: "INT"
     dremio:
       name: "integer"
     required_cast_arguments: "none"
+  
   - source:
       name: "INTEGER"
     dremio:
       name: "integer"
     required_cast_arguments: "none"
+  
   - source:
       name: "INT8"
     dremio:
       name: "integer"
     required_cast_arguments: "none"
+  
   - source:
       name: "SMALLINT"
     dremio:
       name: "integer"
     required_cast_arguments: "none"
+  
   - source:
       name: "TINYINT"
     dremio:
@@ -74,14 +77,31 @@ data_types:
 
   - source:
       name: "DECIMAL"
+      max_precision: 37
+      max_scale: 15
     dremio:
       name: "double"
     required_cast_arguments: "none"
+  
   - source:
       name: "FLOAT"
     dremio:
       name: "double"
-    required_cast_arguments: "none"
+  
+  - source:
+      name: "NUMERIC"
+      max_precision: 37
+      max_scale: 15
+    required_cast_args: "precision_scale"
+    dremio:
+      name: "decimal"
+
+  - source:
+      name: "NUMBER"
+      max_precision: 38
+      max_scale: 0
+    dremio:
+      name: "decimal"
 
 
   #-------Date Types--------#
@@ -226,6 +246,22 @@ expressions:
       - "<"
       - "<="
       signatures:
+      - args:
+        - "decimal"
+        - "decimal"
+        return: "boolean"
+      - args:
+        - "decimal"
+        - "integer"
+        return: "boolean"
+      - args:
+        - "decimal"
+        - "double"
+        return: "boolean"
+      - args:
+        - "decimal"
+        - "varchar"
+        return: "boolean"
       - args:
         - "double"
         - "double"
