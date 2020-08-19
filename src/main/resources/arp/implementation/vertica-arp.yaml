@@ -145,6 +145,29 @@ data_types:
     dremio:
       name: "varchar"
     required_cast_arguments: "none"
+  #--------Binary-------------#
+  - source:
+      name: "BINARY"
+      max_precision: 65000
+      literal_length_limit: 65000
+    dremio:
+      name: "varbinary"
+    required_cast_arguments: "none"  
+  
+  - source:
+      name: "VARBINARY"
+      max_precision: 65000
+      literal_length_limit: 65000
+    dremio:
+      name: "varbinary"
+    required_cast_args: "precision"
+  
+  - source:
+      name: "LONG VARBINARY"
+      max_precision: 31999999
+      literal_length_limit: 31999999
+    dremio:
+      name: "varbinary"
 
 relational_algebra:
   aggregation:
