@@ -36,7 +36,7 @@ import io.protostuff.Tag;
 /**
  * Configuration for vertica sources.
  */
-@SourceType(value = "VERTICA", label = "Vertica")
+@SourceType(value = "verticaARP", label = "Vertica")
 public class VerticaConf extends AbstractArpConf<VerticaConf> {
   private static final String ARP_FILENAME = "arp/implementation/vertica-arp.yaml";
   private static final ArpDialect ARP_DIALECT =
