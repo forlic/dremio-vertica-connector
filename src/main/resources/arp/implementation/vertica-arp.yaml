@@ -16,7 +16,7 @@
 
 metadata:
   # Manually Configured Metadata Section.
-  name: VERTICA
+  name: VERTICAARP
   apiname: Vertica
   spec_version: '1'
 
@@ -318,6 +318,22 @@ expressions:
         return: "boolean"
       - args:
         - "varchar"
+        - "varchar"
+        return: "boolean"
+      - args:
+        - "date"
+        - "date"
+        return: "boolean"
+      - args:
+        - "date"
+        - "varchar"
+        return: "boolean"
+      - args:
+        - "timestamp"
+        - "timestamp"
+        return: "boolean"
+      - args:
+        - "timestamp"
         - "varchar"
         return: "boolean"
 
